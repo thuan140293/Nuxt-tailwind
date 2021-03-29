@@ -1,0 +1,8 @@
+.navbar-wrapper{
+    @apply bg-cyan-500;
+    .navbar-spacing{
+        @apply max-w-7xl ;
+        @apply mx-auto ;
+        @apply px-2;
+    }
+}

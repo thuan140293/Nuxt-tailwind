@@ -1,0 +1,18 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+//helpers
+@import "./helpers/base";
+@import "./helpers/site";
+@import "./helpers/variables";
+
+//layouts
+@import "./layouts/navbar";
+@import "./layouts/footer";
+
+//components
+@import "./components/buttons";
+@import "./components/cards";
+@import "./components/pagination";
+@import "./components/modals";

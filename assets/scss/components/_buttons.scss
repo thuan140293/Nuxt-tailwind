@@ -1,0 +1,11 @@
+.btn{
+    &.btn-collapsed{
+        @apply p-2; 
+        @apply rounded-md;
+        @apply text-gray-400;
+        @apply inline-flex;
+        @apply items-center;
+        @apply justify-center;
+        @apply text-white; 
+    }
+}

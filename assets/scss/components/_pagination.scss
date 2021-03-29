@@ -1,0 +1,23 @@
+.pagination {
+    list-style-type: none;
+    .pagination-item {
+        display: inline-block;
+        span{
+            &.active {
+                @apply border-t; 
+                @apply border-b;
+                @apply border-l;
+                @apply border-cyan-100;
+                @apply px-3;
+                @apply py-2; 
+                @apply bg-cyan-100; 
+                @apply no-underline; 
+                @apply text-cyan-500; 
+                @apply text-sm;
+            }
+        }
+        
+    }
+}
+  
+  
