@@ -1,5 +1,6 @@
 import Vuex from 'vuex'
-import homeModule from './modules/home'
+import homeModule from './modules/home';
+import authModule from './modules/auth';
 
 const createStore = () => {
   return new Vuex.Store({
@@ -8,6 +9,7 @@ const createStore = () => {
     },
     modules: {
       home: homeModule,
+      auth: authModule,
     },
     actions: {
       

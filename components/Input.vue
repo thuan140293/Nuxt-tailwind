@@ -1,6 +1,6 @@
 <template>
     <div>
-        <input :type="type" :placeholder="placeholder" class="w-full border-2 border-cyan-600 focus:outline-none focus:ring-1 focus:ring-cyan-600 focus:border-cyan-600 p-3 rounded h-10" @input="handleChange($event)">
+        <input :type="type" :placeholder="placeholder" :class="classes" @input="handleChange($event)">
     </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
     methods:{
         handleChange(event){
             event.preventDefault();
-            this.$emit("searchChanged", event.target.value);
+            this.$emit("onChanged", event.target.value);
         }
     },
     props:{
@@ -23,6 +23,9 @@ export default {
         },
         type:{
             type: String,
+        },
+        classes:{
+            type: String
         }
     }
 }

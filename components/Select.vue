@@ -1,6 +1,6 @@
 <template>
     <div>
-        <select class="form-select block w-full border-2 border-cyan-600 focus:outline-none focus:ring-1 focus:ring-cyan-600 focus:border-cyan-600 p-1 rounded h-10"
+        <select :class="classes"
         :placeholder="placeholder"
         @change="handleChange($event)">
             <option 
@@ -22,6 +22,6 @@ export default {
             this.$emit("filterChanged", event.target.value);
         }
     },
-    props: ['placeholder', 'options']
+    props: ['placeholder', 'options', 'classes']
 }
 </script>

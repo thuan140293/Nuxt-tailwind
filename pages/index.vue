@@ -2,10 +2,10 @@
   <div>
     <div class="grid grid-cols-3 gap-4 my-5">
       <form>
-        <input-component :type="searchType" :placeholder="searchPlaceholder" @searchChanged="handleSearch" />
+        <input-component :type="searchType" :placeholder="searchPlaceholder" :classes="classesInput" @onChanged="handleSearch" />
       </form>
       <form>
-        <select-component :placeholder="selectPlaceholder" :options="dummyData.SELECT_ITEMS" @filterChanged="handleFilter"/>
+        <select-component :placeholder="selectPlaceholder" :options="dummyData.SELECT_ITEMS" :classes="classesSelect" @filterChanged="handleFilter"/>
       </form>
     </div>
     <div class="my-5">
@@ -35,6 +35,8 @@ export default {
   data(){
     return{
       hasMorePages: true,
+      classesInput : 'w-full border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-gray-600 focus:border-gray-600 p-3 rounded h-10',
+      classesSelect: 'form-select block w-full border-2 border-gray-600 focus:outline-none focus:ring-1 focus:ring-gray-600 focus:border-gray-600 p-1 rounded h-10',
       searchPlaceholder: 'Search here...',
       searchType: 'text',
       selectPlaceholder: 'Select',
@@ -72,7 +74,6 @@ export default {
       this.$store.dispatch("home/getPaginateCards");
     },
     handleFilter(event){
-      console.log(event);
       this.$store.dispatch("home/filter", event);
       this.$store.dispatch("home/getPaginateCards");
     }
