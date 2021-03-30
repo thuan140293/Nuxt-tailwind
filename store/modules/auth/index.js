@@ -3,7 +3,7 @@ import getters from './getters'
 import mutations from './mutations'
 
 const state = {
-    token: null,
+    accessToken: null,
     user: null,
 }
 

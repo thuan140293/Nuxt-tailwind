@@ -14,7 +14,6 @@
                 <label-component :classes="classesLabel" :fors="registrationPassword.fors" :text="registrationPassword.text"></label-component>
                 <input-component :type="registrationPassword.type" :placeholder="registrationPassword.placeholder" :classes="classesInput" @onChanged="getRegistrationPassword" />
             </div>
-            <!-- <button type="button" @click="registerSubmit">Register</button> -->
             <button-component :type="button.type" :classes="classesButton" :text="button.text" @submitChanged="registerSubmit"></button-component>
         </form>
     </div>
@@ -24,7 +23,6 @@
 import Input from '../../components/Input';
 import Label from '../../components/Label';
 import Button from '../../components/Buttons';
-import firebase from 'firebase'
 export default {
     components:{
         'input-component': Input,
@@ -39,12 +37,6 @@ export default {
             button:{
                 type: 'button',
                 text: 'Submit'
-            },
-            name:{
-                fors: 'name',
-                text: 'Name',
-                type: 'text',
-                placeholder: 'Enter name please',
             },
             email:{
                 fors: 'email',
