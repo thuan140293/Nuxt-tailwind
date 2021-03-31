@@ -89,6 +89,7 @@
               leave-to-class="opacity-0 scale-95"
             >
               <div v-show="isProfile" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+                <a href="javascript:;" class="block px-4 py-2 text-sm text-cyan-700 hover:bg-cyan-100" role="menuitem">{{ currentUser.email }}</a>
                 <a href="javascript:;" class="block px-4 py-2 text-sm text-cyan-700 hover:bg-cyan-100" role="menuitem">Your Profile</a>
                 <a href="javascript:;" class="block px-4 py-2 text-sm text-cyan-700 hover:bg-cyan-100" role="menuitem">Settings</a>
                 <a href="javascript:;" class="block px-4 py-2 text-sm text-cyan-700 hover:bg-cyan-100" role="menuitem" @click="signOut">Sign out</a>
@@ -115,6 +116,7 @@
 <script>
   import dummyData from '../commons/dummys'; 
   import clickOutside from '../directives/clickOutside.js';
+  import {mapState, mapGetters} from 'vuex';
   export default {
     directives:{
       clickOutside
@@ -124,6 +126,17 @@
       isMobile: false,
       dummyData
     }),
+    computed: {
+      ...mapState({
+        state: state => state.auth,
+      }),
+      ...mapGetters({
+        currentUser: "auth/getCurrentUser",
+      })
+    },
+    async created(){
+      await this.$store.dispatch("auth/getCurrentUser");
+    },
     methods:{
       signOut(){
         this.$store.dispatch("auth/logout");

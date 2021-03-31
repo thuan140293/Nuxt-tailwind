@@ -78,7 +78,7 @@ export default {
         async registerSubmit() {
             if (this.formData.password === this.formData.registrationPassword) {
                 try{
-                    this.$store.dispatch("auth/register", 
+                    await this.$store.dispatch("auth/register", 
                         { 
                             email : this.formData.email,
                             password: this.formData.password
@@ -86,7 +86,7 @@ export default {
                 }catch(errors){
                     console.log(errors)
                 }
-            } 
+            };
         }
     }
 }

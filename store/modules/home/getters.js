@@ -15,7 +15,9 @@ const getPaginateCards = (state, getters, rootState) => {
         return v;
       });
       data.limit = state.params.limit;
-      data.total = state.allCards.length;
+      if(state.allCards && state.allCards.length){
+        data.total = state.allCards.length;
+      }
       data.totalPages = Math.ceil(data.total / data.limit);
     }
     return data;

@@ -4,7 +4,14 @@ import mutations from './mutations'
 
 const state = {
     accessToken: null,
-    user: null,
+    userId: null,
+    currentUser: {
+        displayName: null,
+        email: null,
+        emailVerified: null,
+        phoneNumber: null,
+        photoURL: null,
+    }
 }
 
 export default {
