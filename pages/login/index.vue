@@ -19,8 +19,9 @@
 import Input from '../../components/Input';
 import Label from '../../components/Label';
 import Button from '../../components/Buttons';
-import Cookie from 'js-cookie';
+import guest from '../../middleware/guest';
 export default {
+    middleware: guest,
     components:{
         'input-component': Input,
         'label-component': Label,
@@ -54,6 +55,13 @@ export default {
         }
     },
     methods:{
+        redirectTo: function (path) {
+            if (path) {
+                this.$router.push(path);
+            } else {
+                this.$router.go(-1);
+            }
+        },
         getEmail(event){
             this.formData.email = event;
         },
@@ -67,6 +75,7 @@ export default {
                         email : this.formData.email,
                         password: this.formData.password
                     });
+                this.$router.push("/");
             }catch(errors){
                 console.log(errors)
             }

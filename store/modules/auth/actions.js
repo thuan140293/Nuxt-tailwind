@@ -1,4 +1,5 @@
-import firebase from 'firebase'
+import firebase from 'firebase';
+import Cookie from 'js-cookie';
 
 async function register(context, { email, password }){
     let response = await firebase.auth().createUserWithEmailAndPassword(email, password);
@@ -16,7 +17,15 @@ async function login(context, { email, password }){
     return response;
 }
 
+async function logout(context, request){
+    let response = await firebase.auth().signOut();
+    Cookie.remove("accessToken");
+    Cookie.remove("userId");
+    return response;
+}
+
 export default{
     register,
-    login
+    login,
+    logout
 }

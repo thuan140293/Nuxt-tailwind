@@ -23,7 +23,9 @@
 import Input from '../../components/Input';
 import Label from '../../components/Label';
 import Button from '../../components/Buttons';
+import guest from '../../middleware/guest';
 export default {
+    middleware: guest,
     components:{
         'input-component': Input,
         'label-component': Label,

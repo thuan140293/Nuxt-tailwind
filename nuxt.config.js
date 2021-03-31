@@ -37,6 +37,8 @@ export default {
 
   buildModules: ['@nuxtjs/tailwindcss'],
 
+  // middleware: 'auth',
+
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios

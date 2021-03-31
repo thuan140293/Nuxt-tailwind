@@ -25,7 +25,9 @@ import Input from '../components/Input';
 import Select from '../components/Select';
 import dummyData from '../commons/dummys';
 import { mapState, mapGetters } from "vuex";
+import auth from '../middleware/auth';
 export default {
+  middleware: auth,
   components:{
     'card-component': Cards,
     'pagination-component': Pagination,
